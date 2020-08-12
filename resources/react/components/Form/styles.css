@@ -1,0 +1,113 @@
+.Form{
+    display: flex;
+    min-height: 70vh;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(102,102,102,1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(102,102,102,1);
+    box-shadow: 0px 0px 10px 0px rgba(102,102,102,1);
+}
+
+.Form .info-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: rgba(38, 38, 38, .8);
+    background-position: center center;
+    background-size: cover;
+}
+.Form .info-container *{ 
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px 1px #262626;
+    transition: font-size .2s;
+}
+
+.Form .info-container .title{ 
+    font-weight: 600;
+ }
+.Form .info-container .subtitle{ 
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 5vh;
+ }
+
+.Form .form-container,
+.Form .form-container form{
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .Form{
+        width: 90%;
+        flex-direction: column;
+    }
+
+    .Form .info-container{ width: 100%; padding: 25px 10vw; }
+    .Form .info-container .icon{ font-size: 32px; }
+    .Form .info-container .title{ font-size: 30px; }
+    .Form .info-container .subtitle{ font-size: 20px; }
+    .Form .info-container .description{ font-size: 14px; }
+
+    .Form .form-container{ width: 100%; min-height: 40vh; padding: 5vh 0; }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .Form{
+        width: 85%;
+        flex-direction: column;
+    }
+
+    .Form .info-container{ width: 100%; padding: 30px 15vw; }
+    .Form .info-container .icon{ font-size: 40px; }
+    .Form .info-container .title{ font-size: 33px; }
+    .Form .info-container .subtitle{ font-size: 22px; }
+    .Form .info-container .description{ font-size: 15px; }
+
+    .Form .form-container{ width: 100%; min-height: 40vh; padding: 5vh 0; }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .Form{
+        width: 700px;
+        flex-direction: row;
+    }
+
+    .Form .info-container{ width: 40%; padding: 10vh 2vw; }
+    .Form .info-container .icon{ font-size: 48px; }
+    .Form .info-container .title{ font-size: 36px; }
+    .Form .info-container .subtitle{ font-size: 24px; }
+    .Form .info-container .description{ font-size: 16px; }
+
+    .Form .form-container{ width: 60%; min-height: 70vh; padding: 0; }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .Form{ width: 70vw; }
+
+    .Form .info-container .icon{ font-size: 56px; }
+    .Form .info-container .title{ font-size: 39px; }
+    .Form .info-container .subtitle{ font-size: 26px; }
+    .Form .info-container .description{ font-size: 17px; }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .Form{ width: 60vw; }
+
+    .Form .info-container .icon{ font-size: 64px; }
+    .Form .info-container .title{ font-size: 42px; }
+    .Form .info-container .subtitle{ font-size: 28px; }
+    .Form .info-container .description{ font-size: 18px; }
+}

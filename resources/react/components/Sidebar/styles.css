@@ -1,0 +1,215 @@
+.sidebar-three-bars{
+    z-index: 500;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+
+    width: 60px;
+    height: 60px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: solid 1px white;
+    border-radius: 50px;
+    background-color: #262626;
+    color: white;
+
+
+    transition: background-color .3s, font-size .3s;
+}
+.sidebar-three-bars:hover{ background-color: darkslategray; }
+
+
+
+
+.Sidebar{
+    z-index: 1000;
+    height: 100%;
+
+    position: fixed;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    -webkit-box-shadow: 10px 0px 20px -15px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 0px 20px -15px rgba(0,0,0,0.75);
+    box-shadow: 10px 0px 20px -15px rgba(0,0,0,0.75);
+    background-color: #262626;
+}
+
+.Sidebar .logo{
+    padding-left: 10px;
+
+    color: white;
+
+    font-family: 'Bebas Neue', cursive;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+
+    transition: font-size .1s;
+}
+
+.Sidebar a,
+.Sidebar button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    background-color: #262626;
+    color: white;
+
+    transition: background-color .5s, color .5s, font-weight .2s, font-size .1s;
+}
+
+.Sidebar .main{
+    height: 45px;
+    padding-left: 30px;
+    font-weight: 400;
+}
+.Sidebar .main.active{ font-weight: bold; }
+
+.Sidebar .sub{
+    height: 35px;
+    padding-left: 50px;
+    font-weight: 300;
+}
+
+
+@media only screen and (max-width: 300px) {
+    .sidebar-three-bars{ font-size: 28px; }
+    .sidebar-three-bars:hover{ font-size: 31px; }
+
+    .Sidebar{ width: 150px; }
+    .Sidebar .logo{ font-size: 30px; }
+
+    .Sidebar .main{ font-size: 14px; }
+    .Sidebar .sub{ font-size: 12px; }
+
+    .Sidebar .main img{
+        width: 20px;
+        height: 15px;
+    }
+}
+
+@media only screen and (min-width: 300px) {
+    .sidebar-three-bars{ font-size: 32px; }
+    .sidebar-three-bars:hover{ font-size: 35px; }
+
+    .Sidebar{ width: 200px; }
+    .Sidebar .logo{ font-size: 35px; }
+
+    .Sidebar .main{ font-size: 16px; }
+    .Sidebar .sub{ font-size: 14px; }
+
+    .Sidebar .main img{
+        width: 30px;
+        height: 20px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .sidebar-three-bars{ font-size: 38px; }
+    .sidebar-three-bars:hover{ font-size: 41px; }
+
+    .Sidebar{ width: 250px; }
+    .Sidebar .logo{ font-size: 40px; }
+
+    .Sidebar .main{ font-size: 19px; }
+    .Sidebar .sub{ font-size: 16px; }
+
+    .Sidebar .main img{
+        width: 40px;
+        height: 25px;
+    }
+}
+
+
+
+
+.RoutineSidebar{
+    display: flex;
+    flex-wrap: wrap;
+
+    background-color: #262626;
+}
+
+.RoutineSidebar .button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: solid 1px red;
+
+    transition: font-size .2s;
+}
+
+@media only screen and (max-width: 600px) {
+    .RoutineSidebar{
+        width: 100%;
+        height: 150px;
+        
+        flex-direction: row;
+
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .RoutineSidebar::-webkit-scrollbar { width: 5px; }
+    .RoutineSidebar::-webkit-scrollbar-track { background: white; }
+    .RoutineSidebar::-webkit-scrollbar-thumb { background: darkgray; }
+    .RoutineSidebar::-webkit-scrollbar-thumb:hover { background: lightgray;  }
+
+    .RoutineSidebar button{
+        width: 50%;
+        height: 50%;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .RoutineSidebar{
+        width: 150px;
+        flex-direction: column;
+    }
+
+    .RoutineSidebar button{
+        width: 100%;
+        height: 50px;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .RoutineSidebar{
+        width: 200px;
+    }
+    .RoutineSidebar button{
+        height: 50px;
+        font-size: 17px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .RoutineSidebar{
+        width: 250px;
+    }
+    .RoutineSidebar button{
+        height: 55px;
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .RoutineSidebar{
+        width: 300px;
+    }
+    .RoutineSidebar button{
+        height: 60px;
+        font-size: 20px;
+    }
+}

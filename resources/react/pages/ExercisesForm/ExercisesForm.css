@@ -1,0 +1,22 @@
+.ExercisesForm{
+    min-height: calc(100vh - 80px);
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.ExercisesForm .link{
+    color: #262626;
+    text-align: center;
+    text-decoration-style: dotted;
+    transition: color .5s, font-size .2s, text-decoration .5s;
+}
+.ExercisesForm .link:hover{ color: #666666; text-decoration: underline; }
+
+@media only screen and (max-width: 768px) {
+    .ExercisesForm{ align-items: flex-start; }
+}
+@media only screen and (min-width: 768px) {
+    .ExercisesForm{ align-items: center; }
+}

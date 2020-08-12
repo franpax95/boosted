@@ -1,0 +1,400 @@
+.Table{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: whitesmoke;
+    border-radius: 5px;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(169,169,169,1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(169,169,169,1);
+    box-shadow: 0px 0px 10px 0px rgba(169,169,169,1);
+}
+
+.Table .element{
+    width: 100%;
+    position: relative;
+}
+.Table .element:not(:first-child){ border-top: solid 1px darkgray; }
+
+.Table .main{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    color: #4d4d4d;
+
+    font-weight: 500;
+
+    transition: background-color .5s, font-size .2s;
+}
+.Table .main:hover{ background-color: #e6e6e6; }
+
+
+.ExercisesTable .main .name{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.ExercisesTable .main .name .cat{ 
+    color: #666666;
+    font-size: 0.9em;
+}
+.ExercisesTable .main .img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+    overflow: hidden;
+}
+.ExercisesTable .main .img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    font-size: 14px;
+}
+
+.Table .edit,
+.Table .delete {
+    z-index: 50;
+    
+    width: 90px;
+    height: 35px;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+
+    transition: color .5s, border .5s, background-color .5s, font-size .2s;
+}
+.Table .edit{ border: solid 1.5px #666666; color: #666666; }
+.Table .edit:hover{ border-color: #4d4d4d; color: #4d4d4d; background-color: rgba(77, 77, 77, .1); }
+.Table .delete{ border: solid 1.5px #ff4d4d; color: #ff4d4d; }
+.Table .delete:hover{ border-color: red; color: red; background-color: rgba(255, 0, 0, .1); }
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .CategoriesTable .element{ height: 55px; }
+    .ExercisesTable .element{ height: 65px; }
+
+
+    .CategoriesTable .main{ 
+        padding-left: 20px; 
+        font-size: 15px;
+    }
+    .ExercisesTable .main{ 
+        padding-left: 4px; 
+        font-size: 14px;
+    }
+    .ExercisesTable .main .img{
+        display: none;
+    }
+
+
+    .Table .edit,
+    .Table .delete {
+        width: 70px;
+        height: 35px;
+        font-size: 14px;
+    }
+    .Table .edit{ right: 90px; }
+    .Table .delete{ right: 10px; }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .CategoriesTable .element{ height: 55px; }
+    .ExercisesTable .element{ height: 65px; }
+
+
+    .CategoriesTable .main{ 
+        padding-left: 30px; 
+        font-size: 18px;
+    }
+    .ExercisesTable .main{ 
+        padding-left: 6px; 
+        font-size: 18px;
+    }
+    .ExercisesTable .main .img{
+        width: 60px;
+        height: 45px;
+        margin-right: 6px;
+    }
+
+
+    .Table .edit,
+    .Table .delete {
+        width: 80px;
+        height: 35px;
+        font-size: 16px;
+    }
+    .Table .edit{ right: 110px; }
+    .Table .delete{ right: 15px; }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .CategoriesTable .element{ height: 70px; }
+    .ExercisesTable .element{ height: 80px; }
+
+
+    .CategoriesTable .main{ 
+        padding-left: 40px; 
+        font-size: 21px;
+    }
+    .ExercisesTable .main{ 
+        padding-left: 10px; 
+        font-size: 21px;
+    }
+    .ExercisesTable .main .img{
+        width: 70px;
+        height: 55px;
+        margin-right: 10px;
+    }
+
+
+    .Table .edit,
+    .Table .delete {
+        width: 85px;
+        height: 40px;
+        font-size: 17px;
+    }
+    .Table .edit{ right: 115px; }
+    .Table .delete{ right: 15px; }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .CategoriesTable .element{ height: 75px; }
+    .ExercisesTable .element{ height: 85px; }
+
+
+    .CategoriesTable .main{ 
+        padding-left: 50px; 
+        font-size: 24px;
+    }
+    .ExercisesTable .main{ 
+        padding-left: 20px; 
+        font-size: 24px;
+    }
+    .ExercisesTable .main .img{
+        width: 80px;
+        height: 65px;
+        margin-right: 20px;
+    }
+
+
+    .Table .edit,
+    .Table .delete {
+        width: 90px;
+        height: 45px;
+        font-size: 18px;
+    }
+    .Table .edit{ right: 130px; }
+    .Table .delete{ right: 20px; }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .CategoriesTable .element{ height: 80px; }
+    .ExercisesTable .element{ height: 90px; }
+
+
+    .CategoriesTable .main{ 
+        padding-left: 60px; 
+        font-size: 26px;
+    }
+    .ExercisesTable .main{ 
+        padding-left: 30px; 
+        font-size: 26px;
+    }
+    .ExercisesTable .main .img{
+        width: 90px;
+        height: 70px;
+        margin-right: 30px;
+    }
+
+
+    .Table .edit,
+    .Table .delete {
+        width: 100px;
+        height: 50px;
+        font-size: 20px;
+    }
+    .Table .edit{ right: 160px; }
+    .Table .delete{ right: 30px; }
+}
+
+
+
+.RoutinesTable{ width: 100%; }
+.RoutinesTable > *{ margin: 5vh 0; }
+
+.RoutinesTable .RoutinesElement{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.75);
+}
+.RoutinesTable .RoutinesElement > *{ width: 100%; }
+
+.RoutinesTable .RoutinesElement .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    background-color: #262626;
+    color: white;
+
+    /* font-size: 28px; */
+    font-weight: 600;
+    text-align: center;
+
+    transition: background-color .5s, font-size .2s;
+}
+.RoutinesTable .RoutinesElement .header:hover{ background-color: #666666; }
+
+.RoutinesTable .RoutinesElement .body{
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+.RoutinesTable .RoutinesElement .body > *{ width: 100%; }
+.RoutinesTable .RoutinesElement .body *{ 
+    transition: color .5s, background-color .5s, font-size .2s;
+ }
+
+.RoutinesTable .RoutinesElement .body .description{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: #666666;
+
+    font-weight: 400;
+    text-align: center;
+}
+.RoutinesTable .RoutinesElement .body .buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.RoutinesTable .RoutinesElement .body .buttons > *{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 600;
+}
+.RoutinesTable .RoutinesElement .body .buttons .start{
+    background-color: #4FA2D6;
+    color: white;
+}
+.RoutinesTable .RoutinesElement .body .buttons .start:hover{
+    background-color: cornflowerblue;
+    color: whitesmoke;
+}
+.RoutinesTable .RoutinesElement .body .buttons .edit{
+    background-color: olivedrab;
+    color: white;
+}
+.RoutinesTable .RoutinesElement .body .buttons .edit:hover{
+    background-color: darkolivegreen;
+    color: whitesmoke;
+}
+.RoutinesTable .RoutinesElement .body .buttons .delete{
+    background-color: red;
+    color: white;
+}
+.RoutinesTable .RoutinesElement .body .buttons .delete:hover{
+    background-color: crimson;
+    color: whitesmoke;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .RoutinesTable .RoutinesElement .header{ font-size: 30px; }
+    .RoutinesTable .RoutinesElement .body .description{ 
+        padding: 10px;
+        font-size: 15px; 
+    }
+    .RoutinesTable .RoutinesElement .body .buttons > *{
+        width: 80px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .RoutinesTable .RoutinesElement .header{ font-size: 32px; }
+    .RoutinesTable .RoutinesElement .body .description{ 
+        padding: 10px 20px;
+        font-size: 17px; 
+    }
+    .RoutinesTable .RoutinesElement .body .buttons > *{
+        width: 120px;
+        height: 45px;
+        font-size: 18px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .RoutinesTable .RoutinesElement .header{ font-size: 34px; }
+    .RoutinesTable .RoutinesElement .body .description{ 
+        padding: 15px 30px;
+        font-size: 18px; 
+    }
+    .RoutinesTable .RoutinesElement .body .buttons > *{
+        width: 130px;
+        height: 45px;
+        font-size: 20px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .RoutinesTable .RoutinesElement .header{ font-size: 36px; }
+    .RoutinesTable .RoutinesElement .body .description{
+        padding: 20px 10vw;
+        font-size: 19px; 
+    }
+    .RoutinesTable .RoutinesElement .body .buttons > *{
+        width: 160px;
+        height: 50px;
+        font-size: 22px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .RoutinesTable .RoutinesElement .header{ font-size: 40px; }
+    .RoutinesTable .RoutinesElement .body .description{ font-size: 20px; }
+    .RoutinesTable .RoutinesElement .body .buttons > *{
+        width: 180px;
+        height: 60px;
+        font-size: 24px;
+    }
+}

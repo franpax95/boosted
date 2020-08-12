@@ -1,0 +1,103 @@
+/* pure css loader */
+.Spinner {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+.Spinner div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #253a46;
+    border-radius: 50%;
+    animation: Spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #253a46 transparent transparent transparent;
+}
+.Spinner div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+.Spinner div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+.Spinner div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+@keyframes Spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+
+
+.Fatal{
+    color: red;
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 700;
+    text-align: center;
+    transition: font-size .2s;
+}
+
+
+
+.Layout{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.Layout .layout-title{
+    width: 100%;
+    color: #262626;
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    transition: font-size .2s;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .Fatal{ font-size: 32px; }
+
+    .Layout{ padding: 20vh 10px 8vh 10px; }
+    .Layout .layout-title{ font-size: 42px; margin-bottom: 2vh; }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .Fatal{ font-size: 35px; }
+
+    .Layout{ padding: 6vh 4vw; }
+    .Layout .layout-title{ font-size: 45px; margin-bottom: 3vh; }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .Fatal{ font-size: 38px; }
+
+    .Layout{ padding: 8vh 6vw; }
+    .Layout .layout-title{ font-size: 48px; margin-bottom: 5vh; }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .Fatal{ font-size: 42px; }
+
+    .Layout{ padding: 10vh 10vw; }
+    .Layout .layout-title{ font-size: 52px; margin-bottom: 7vh; }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .Fatal{ font-size: 45px; }
+
+    .Layout{ padding: 12vh 20vw; }
+    .Layout .layout-title{ font-size: 55px; margin-bottom: 8vh; }
+}
