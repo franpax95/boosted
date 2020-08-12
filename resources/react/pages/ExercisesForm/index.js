@@ -5,7 +5,6 @@ import { useLanguage } from '../../hooks/useLanguage';
 import { Context as CategoriesContext } from '../../contexts/CategoriesContext';
 import { Context as ExercisesContext } from '../../contexts/ExercisesContext';
 
-
 import { Prompt, Redirect } from 'react-router-dom';
 
 import { Spinner, Fatal, Layout } from '../../components/util';
@@ -23,17 +22,17 @@ const ExercisesForm = (props) => {
     /** rest id by url */
     const { id: ex_id } = props.match.params;
 
+    /** categories state */
+    const { 
+        loading: cat_loading, error: cat_error, categories, 
+        getCategories, unsetError: unsetCatError, cleanCategoryExercises
+    } = useContext(CategoriesContext);
+
     /** exercises state */
     const { 
         loading, error, exercise, 
         getExercise, unsetError, submit
     } = useContext(ExercisesContext);
-
-    /** categories state */
-    const { 
-        loading: cat_loading, error: cat_error, categories, 
-        getCategories, unsetError: unsetCatError
-    } = useContext(CategoriesContext);
 
     /** form data */
     const [name, setName] = useState('');
@@ -85,14 +84,17 @@ const ExercisesForm = (props) => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        console.log(name, categoryId, description, image);
+        // console.log(name, categoryId, description, image);
 
         let ex;
         if(ex_id) ex = { id: ex_id, name, category_id: categoryId, description, image };
         else ex = { name, category_id: categoryId, description, image };
 
         await submit(ex);
-        if(!error && !loading) setSuccess(true);
+        if(!error && !loading) {
+            setSuccess(true);
+            cleanCategoryExercises();
+        }
     }
 
 

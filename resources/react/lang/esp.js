@@ -119,11 +119,36 @@ export const ExercisesForm = {
     prompt: {
         name: 'No has guardado tu categoría, ¿estás seguro de que deseas salir?'
     },
-
+    // validate: {
+    //     name: 'El nombre es importante. Algo tendrá que tener tu categoría...'
+    // }
 };
 
 export const Routines = {
     title: ['Rutinas', 'Rutina'],
+};
+
+export const RoutinesForm = {
+    title: ['Añadir Rutina', 'Editar Rutina'],
+    add: {
+        title: '¡Lo mejor de esta página, prepárate tu propia rutina personalizada!',
+        description: 'Elige de entre tus ejercicios. Puedes elegir en cada ejercicio si usar un timer o un contador. Para NO utilizar el timer, simplemente deja los tiempos de contracción y descanso a 0 segundos.'
+    },
+    edit: {
+        title: 'Editar Rutina',
+        description: 'Edición de rutina'
+    },
+    input: {
+        name: 'El nombre de tu rutina',
+        description: 'La descripción de tu rutina',
+        submit: 'Guardar'
+    },
+    prompt: {
+        name: 'No has guardado tu categoría, ¿estás seguro de que deseas salir?'
+    },
+    validate: {
+        name: 'El nombre es importante. Algo tendrá que tener tu categoría...'
+    }
 };
 
 
@@ -137,7 +162,7 @@ const espTexts = {
     Login, SignUp, 
     Categories, CategoriesForm,
     Exercises, ExercisesForm,
-    Routines 
+    Routines, RoutinesForm
 };
 
 export default espTexts;

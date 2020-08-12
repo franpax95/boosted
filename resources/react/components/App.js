@@ -18,6 +18,7 @@ import CategoriesForm from '../pages/CategoriesForm';
 import Exercises from '../pages/Exercises';
 import ExercisesForm from '../pages/ExercisesForm';
 import Routines from '../pages/Routines';
+import RoutinesForm from '../pages/RoutinesForm';
 import NotFound from '../pages/NotFound';
 
 
@@ -67,6 +68,7 @@ const App = () => {
                         <AuthRoute exact path={["/categories", "/categories/:id"]} component={Categories} isAuth={isAuth} />
                         <AuthRoute exact path={["/exercise/add", "/exercise/edit/:id"]} component={ExercisesForm} isAuth={isAuth} />
                         <AuthRoute exact path={["/exercises", "/exercises/:id"]} component={Exercises} isAuth={isAuth} />
+                        <AuthRoute exact path={["/routine/add", "/routine/edit/:id"]} component={RoutinesForm} isAuth={isAuth} />
                         <AuthRoute exact path={["/routines", "/routines/:id"]} component={Routines} isAuth={isAuth} />
                         <Route component={NotFound} />
                     </Switch>

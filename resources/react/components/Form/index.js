@@ -1,6 +1,24 @@
 import React from 'react';
 import './styles.css';
 
+export const RoutineForm = ({
+    src = '',
+    title = '',
+    description = '',
+    onSubmit = undefined,
+    children
+}) => (
+    <div className="RoutineForm">
+        <div className="header" style={{ backgroundImage: `url(${src})` }}>
+            <div className="title">{title}</div>
+            <div className="description">{description}</div>
+        </div>
+        <form className="form-container" onSubmit={onSubmit}>
+            {children}
+        </form>
+    </div>
+)
+
 const Form = ({ 
     src = '',
     icon = '',
