@@ -1,0 +1,27 @@
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .RoutinesForm{ padding: 20vh 15px; }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .RoutinesForm{ padding: 10vh 5vw; padding-top: 20vh; }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .RoutinesForm{ padding: 10vh 6vw; }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .RoutinesForm{ padding: 10vh 8vw; }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .RoutinesForm{ padding: 10vh 10vw; }
+}

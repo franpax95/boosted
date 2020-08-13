@@ -52,7 +52,7 @@ const Provider = ({ children }) => {
         formDataSubmit.append('name', exercise.name);
         formDataSubmit.append('category_id', Number(exercise.category_id));
         formDataSubmit.append('description', exercise.description);
-        if(exercise.image !== null)
+        if(exercise.image !== null && exercise.image instanceof File)
             formDataSubmit.append('image', exercise.image);
 
         try{
@@ -60,9 +60,10 @@ const Provider = ({ children }) => {
             const config = { headers: { Authorization: `Bearer ${token}` } };
 
             isEditing
-                ? await axios.post(`/api/exercises/${formData.id}`, formDataSubmit, config)
+                ? await axios.post(`/api/exercises/${exercise.id}`, formDataSubmit, config)
                 : await axios.post(`/api/exercises`, formDataSubmit, config);
         
+            setExercise({});
             setExercises([]);
             setLoading(false);  
         }catch{

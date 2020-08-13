@@ -19,7 +19,7 @@ class RoutinesController extends Controller
         $routines = Routine::where('user_id', $user->id)->orderBy('name', 'asc')->get();
 
         if(count($routines) == 0)
-            return response()->json(['error' => 'There is no routines yet'], 401);
+            return response()->json(['error' => 'There is no routines yet'], 404);
         
         foreach($routines as $routine)
             $routine->exercises = json_decode($routine->exercises);
@@ -51,7 +51,7 @@ class RoutinesController extends Controller
                 'exercises' => $exercises
             ]], 200);
         }catch(ModelNotFoundException $e){
-            return response()->json(['error' => 'The routine does not exist'], 401);
+            return response()->json(['error' => 'The routine does not exist'], 404);
         }
     }
 

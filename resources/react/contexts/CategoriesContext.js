@@ -62,6 +62,8 @@ const Provider = ({ children }) => {
                 ? await axios.post(`/api/categories/${category.id}`, category, config)
                 : await axios.post(`/api/categories`, category, config);
 
+            setExercises([]);
+            setCategory({});
             setCategories([]); 
             setLoading(false);
         }catch{
@@ -75,8 +77,9 @@ const Provider = ({ children }) => {
         try{
             await axios.delete(`/api/categories/${user_id}/${cat_id}`);
 
-            setLoading(false);
+            setCategory({});
             setCategories([]);
+            setLoading(false);
         }catch(error){
             setError(error);
         }
@@ -86,12 +89,12 @@ const Provider = ({ children }) => {
         setError(''); 
     }
 
-
+    const cleanCategoryExercises = () => { setExercises([]); }
 
 
     const value = {
         loading, error, categories, category, exercises,
-        getCategories, getCategory, deleteCategory, submit, unsetError
+        getCategories, getCategory, deleteCategory, submit, unsetError, cleanCategoryExercises
     };
     return <Context.Provider value={value}>{children}</Context.Provider>;
 }

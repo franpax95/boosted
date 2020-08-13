@@ -24,23 +24,63 @@
 
 .Form .info-container .title{ 
     font-weight: 600;
- }
+}
 .Form .info-container .subtitle{ 
     font-weight: 400;
     font-style: italic;
     margin-bottom: 5vh;
- }
+}
 
 .Form .form-container,
 .Form .form-container form{
-    height: 100%;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+.Form .form-container form{
+    padding: 6vh 2vw;
+}
 
+
+.RoutineForm{
+    width: 100%;
+    min-height: 70vh;
+
+    display: flex;
+    flex-direction: column;
+
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(102,102,102,1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(102,102,102,1);
+    box-shadow: 0px 0px 10px 0px rgba(102,102,102,1);
+}
+.RoutineForm > *{ width: 100%; }
+
+.RoutineForm .header{
+    padding: 10px 3vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(38, 38, 38, .8);
+    background-position: center center;
+    background-size: cover;
+}
+.RoutineForm .header *{ 
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px 1px #262626;
+    transition: font-size .2s;
+}
+.RoutineForm .header .title{ 
+    font-weight: 600;
+}
+.RoutineForm form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 /* Extra small devices (phones, 600px and down) */
@@ -57,6 +97,13 @@
     .Form .info-container .description{ font-size: 14px; }
 
     .Form .form-container{ width: 100%; min-height: 40vh; padding: 5vh 0; }
+
+
+    
+    .RoutineForm .header{ height: 270px; }
+    .RoutineForm .header .title{ font-size: 30px; }
+    .RoutineForm .header .description{ font-size: 14px; }
+    .RoutineForm form{ padding: 15px; }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -73,6 +120,13 @@
     .Form .info-container .description{ font-size: 15px; }
 
     .Form .form-container{ width: 100%; min-height: 40vh; padding: 5vh 0; }
+
+
+
+    .RoutineForm .header{ height: 200px; }
+    .RoutineForm .header .title{ font-size: 32px; }
+    .RoutineForm .header .description{ font-size: 15px; }
+    .RoutineForm form{ padding: 25px; }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -89,6 +143,13 @@
     .Form .info-container .description{ font-size: 16px; }
 
     .Form .form-container{ width: 60%; min-height: 70vh; padding: 0; }
+
+
+    
+    /* .RoutineForm .header{ height: 200px; } */
+    .RoutineForm .header .title{ font-size: 34px; }
+    .RoutineForm .header .description{ font-size: 16px; }
+    .RoutineForm form{ padding: 35px; }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -100,6 +161,12 @@
     .Form .info-container .subtitle{ font-size: 26px; }
     .Form .info-container .description{ font-size: 17px; }
 
+
+    
+    .RoutineForm .header{ height: 220px; }
+    .RoutineForm .header .title{ font-size: 36px; }
+    .RoutineForm .header .description{ font-size: 17px; }
+    .RoutineForm form{ padding: 5vh 5vw; }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -110,4 +177,12 @@
     .Form .info-container .title{ font-size: 42px; }
     .Form .info-container .subtitle{ font-size: 28px; }
     .Form .info-container .description{ font-size: 18px; }
+
+
+
+    
+    .RoutineForm .header{ height: 240px; }
+    .RoutineForm .header .title{ font-size: 38px; }
+    .RoutineForm .header .description{ font-size: 18px; }
+    .RoutineForm form{ padding: 8vh 8vw; }
 }

@@ -64,24 +64,31 @@ class ExercisesController extends Controller
         return response()->json(['success' => $exercise], 200);
     }
 
-    public function update(Request $request, User $user, Exercise $exercise){
-        $exercise->name         = $request->name;
-        $exercise->description  = $request->description;
-        $exercise->category_id  = $request->category_id;
+    public function update(Request $request, int $id){
+        try{
+            $exercise = Exercise::findOrFail($id);
+            $user = Auth::user();
 
-        if($request->file('image')){
-            if (strpos($exercise->image, 'storage') !== false){
-                $url_img = str_replace('/storage', '', $exercise->image);
-                Storage::disk('public')->delete($url_img);
+            $exercise->name         = $request->name;
+            $exercise->description  = $request->description;
+            $exercise->category_id  = $request->category_id;
+
+            if($request->file('image')){
+                if (strpos($exercise->image, 'storage') !== false){
+                    $url_img = str_replace('/storage', '', $exercise->image);
+                    Storage::disk('public')->delete($url_img);
+                }
+                
+                $img = $request->file('image')->store('exercises', 'public');
+                $exercise->image = '/storage/' . $img;
             }
-            
-            $img = $request->file('image')->store('exercises', 'public');
-            $exercise->image = '/storage/' . $img;
+    
+            $exercise->save();
+
+            return response()->json(['success' => $exercise], 200);
+        }catch(ModelNotFoundException $e){
+            return response()->json(['error' => 'The exercise does not exist'], 401);
         }
-
-        $exercise->save();
-
-        return response()->json($exercise, 200);
     }
 
     public function delete(User $user, Exercise $exercise){
