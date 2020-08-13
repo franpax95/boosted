@@ -12,13 +12,14 @@ import App from './components/App';
 
 
 const app = document.getElementById('app');
-const userdata = Object.assign({}, app.dataset);
-const isLogIn = (userdata.user) ? true : false;
-const user = (isLogIn) ? JSON.parse(userdata.user) : {};
+// const userdata = Object.assign({}, app.dataset);
+// const isLogIn = (userdata.user) ? true : false;
+// const user = (isLogIn) ? JSON.parse(userdata.user) : {};
 
 ReactDOM.render(
     <LangProvider>
-        <UserProvider _user={user} _isAuth={isLogIn}>
+        {/* <UserProvider _user={user} _isAuth={isLogIn}> */}
+        <UserProvider>
             <CategoriesProvider>
                 <ExercisesProvider>
                     <RoutinesProvider>

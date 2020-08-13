@@ -11,11 +11,13 @@
 
 <body>
     <!-- React root DOM -->
-    @if(Auth::check())
+    <!-- @if(Auth::check())
         <div id="app" data-user="{{ $user }}"></div>
     @else
         <div id="app"></div>
-    @endif
+    @endif -->
+
+    <div id="app"></div>
 
     <!-- React JS -->
     <script src="{{ asset('js/app.js') }}" defer></script>
