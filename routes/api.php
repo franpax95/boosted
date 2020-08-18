@@ -26,24 +26,25 @@ Route::middleware('auth:api')->group(function(){
  * CATEGORIES
  */
 Route::middleware('auth:api')->get('categories/', 'API\CategoriesController@index');
-Route::middleware('auth:api')->get('categories/{category}', 'API\CategoriesController@show');
+Route::middleware('auth:api')->get('categories/{id}', 'API\CategoriesController@show');
 Route::middleware('auth:api')->post('categories', 'API\CategoriesController@store');
-Route::middleware('auth:api')->post('categories/{category}', 'API\CategoriesController@update');
-Route::middleware('auth:api')->delete('categories/{category}', 'API\CategoriesController@delete');
+Route::middleware('auth:api')->post('categories/{id}', 'API\CategoriesController@update');
+Route::middleware('auth:api')->delete('categories/{id}', 'API\CategoriesController@delete');
 
 
 /**
  * EXERCISES
  */
 Route::middleware('auth:api')->get('exercises', 'API\ExercisesController@index');
-Route::middleware('auth:api')->get('exercises/{exercise}', 'API\ExercisesController@show');
+Route::middleware('auth:api')->get('exercises/{id}', 'API\ExercisesController@show');
 Route::middleware('auth:api')->post('exercises', 'API\ExercisesController@store');
-Route::middleware('auth:api')->post('exercises/{exercise}', 'API\ExercisesController@update');
-Route::middleware('auth:api')->delete('exercises/{exercise}', 'API\ExercisesController@delete');
+Route::middleware('auth:api')->post('exercises/{id}', 'API\ExercisesController@update');
+Route::middleware('auth:api')->delete('exercises/{id}', 'API\ExercisesController@delete');
 
 /**
  * ROUTINES
  */
 Route::middleware('auth:api')->get('routines', 'API\RoutinesController@index');
-Route::middleware('auth:api')->get('routines/{routine}', 'API\RoutinesController@show');
+Route::middleware('auth:api')->get('routines/{id}', 'API\RoutinesController@show');
 Route::middleware('auth:api')->post('routines', 'API\RoutinesController@store');
+Route::middleware('auth:api')->delete('routines/{id}', 'API\RoutinesController@delete');

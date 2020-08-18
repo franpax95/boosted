@@ -6,7 +6,10 @@ import React from 'react';
 export const General = {
     edit: 'Editar',
     delete: 'Eliminar',
-    start: 'Empezar'
+    start: 'Empezar',
+    nRep: 'Nº de Repeticiones',
+    tOn: 'Tiempo Contracción',
+    tOff: 'Tiempo Descanso'
 };
 
 
@@ -126,6 +129,18 @@ export const ExercisesForm = {
 
 export const Routines = {
     title: ['Rutinas', 'Rutina'],
+    prev: 'Ejercicio anterior',
+    next: 'Siguiente ejercicio',
+    timer: {
+        contract: 'Contrae',
+        rest: 'descansa',
+        totalrep: 'total de repeticiones',
+        start: 'Empezar rutina',
+        stop: 'Terminar rutina',
+        start_msg: 'Empezar rutina',
+        again_msg: 'Volver a empezar rutina',
+        end_msg: 'FIN',
+    },
 };
 
 export const RoutinesForm = {

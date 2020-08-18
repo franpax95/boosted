@@ -10,12 +10,6 @@ const Provider = ({ children }) => {
     const [routines, setRoutines] = useState([]);
     const [exercises, setExercises] = useState([]);
 
-    const [formData, setFormData] = useState({
-        name: '',
-        description: '',
-        exercises: []
-    });
-    const [goBack, setGoBack] = useState(false);
 
 
 
@@ -26,7 +20,6 @@ const Provider = ({ children }) => {
             const token = sessionStorage.getItem('token');
             const config = { headers: { Authorization: `Bearer ${token}` } };
             const response = await axios.get(`/api/routines`, config);
-
             setLoading(false);
 
             const { success } = response.data;
@@ -39,9 +32,6 @@ const Provider = ({ children }) => {
             setError('Something is wrong. Please, try again later.');
             setLoading(false);
         }
-        finally{ 
-            setGoBack(false);
-        }
     }
 
     const getRoutine = async (routine_id) => {
@@ -51,8 +41,8 @@ const Provider = ({ children }) => {
             const token = sessionStorage.getItem('token');
             const config = { headers: { Authorization: `Bearer ${token}` } };
             const response = await axios.get(`/api/routines/${routine_id}`, config);
-            
             setLoading(false);
+
             setRoutine(response.data.success.routine);
             setExercises(response.data.success.exercises);
         }
@@ -66,39 +56,54 @@ const Provider = ({ children }) => {
         }
     }
 
-    const sendFormData = async (user_id) => {
+    const submit = async routine => {
+        const isEditing = !!routine.id;
         setLoading(true);
+
         try{
-            await axios.post(`/api/routines/${user_id}`, formData);
-            setLoading(false);    
+            const token = sessionStorage.getItem('token');
+            const config = { headers: { Authorization: `Bearer ${token}` } };
+
+            isEditing
+                ? await axios.post(`/api/routines/${routine.id}`, routine, config)
+                : await axios.post(`/api/routines`, routine, config);
+            setLoading(false);
+
+            setRoutines([]);
+            setRoutine({});
             setExercises([]);
-            setGoBack(true);
-            resetFormData();
+        }catch(error){
+            setError(Object.values(error)[2].data.error);
+            setLoading(false);
         }
-        catch(error){ setError(error); }
     }
 
-    const resetFormData = () => {
-        setFormData({
-            name: '',
-            description: '',
-            exercises: []
-        });
+    const deleteRoutine = async (id) => {
+        setLoading(true);
+        
+        try{
+            const token = sessionStorage.getItem('token');
+            const config = { headers: { Authorization: `Bearer ${token}` } };
+            await axios.delete(`/api/routines/${id}`, config);
+            setLoading(false);
+
+            setRoutines([]);
+            setRoutine({});
+        }catch(error){
+            setError(Object.values(error)[2].data.error);
+            setLoading(false);
+        }
     }
 
     const unsetError = () => { setError(''); }
 
 
-    const value = {
-        loading, error, routine, routines, exercises, formData, goBack,
-        getRoutine, getRoutines, setFormData, sendFormData, resetFormData, unsetError
-    };
 
-    return (
-        <Context.Provider value={value}>
-            {children}
-        </Context.Provider>
-    );
+    const value = {
+        loading, error, routine, routines, exercises,
+        getRoutine, getRoutines, submit, deleteRoutine, unsetError
+    };
+    return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 
 export { Context, Provider };

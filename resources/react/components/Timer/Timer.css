@@ -1,0 +1,232 @@
+.Timer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+    background-color: #262626;
+
+}
+.Timer .display{
+    /* max-width: 400px; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(255,255,255,1);
+    box-shadow: 0px 0px 10px 0px rgba(255,255,255,1);
+    background-color: white;
+
+    font-weight: bold;
+
+    transition: font-size .2s;
+}
+
+.Timer .info{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    text-align: center;
+    transition: font-size .2s;
+}
+
+.Timer .reps{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.Timer .reps > div{
+    min-height: 20px;
+    min-width: 20px;
+    border-radius: 50%;
+    margin: 0 10px;
+    -webkit-box-shadow: 0 0 10px -5px rgba(255,0,0,1);
+    -moz-box-shadow: 0 0 10px -5px rgba(255,0,0,1);
+    box-shadow: 0 0 10px -5px rgba(255,0,0,1);
+}
+
+.Timer .start,
+.Timer .stop {
+    margin: 0 20px;
+    width: 90px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    
+    text-align: center;
+
+    transition: background-color .2s, font-size .2s;
+}
+.Timer .start{ background-color: green; color: white;}
+.Timer .start:hover{ background-color: darkgreen; }
+.Timer .stop{ background-color: red; color: white; }
+.Timer .stop:hover{ background-color: darkred; }
+
+@media only screen and (max-width: 300px) {
+    .Timer{ width: 98vw; padding: 10px 3px; }
+
+    .Timer .display{
+        width: 85vw;
+        height: 70vw;
+        font-size: 15px;
+    }
+
+    .Timer .reps > div{
+        min-height: 14px;
+        min-width: 14px;
+        margin: 0 4px;
+    }
+
+    .Timer .info{ font-size: 13px; }
+
+    .Timer .start,
+    .Timer .stop {
+        margin: 0 5%;
+        width: 45%;
+        height: 40px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 300px) {
+    .Timer{ width: 97vw; padding: 12px 5px; }
+
+    .Timer .display{
+        width: 80vw;
+        height: 65vw;
+        font-size: 16px;
+    }
+
+    .Timer .reps > div{
+        min-height: 15px;
+        min-width: 15px;
+        margin: 0 5px;
+    }
+
+    .Timer .info{ font-size: 14px; }
+
+    .Timer .start,
+    .Timer .stop {
+        margin: 0 15px;
+        width: 100px;
+        height: 40px;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 450px) {
+    .Timer{ width: 450px; padding: 15px; }
+
+    .Timer .display{
+        width: 350px;
+        height: 250px;
+        font-size: 17px;
+    }
+
+    .Timer .reps > div{
+        min-height: 18px;
+        min-width: 18px;
+        margin: 0 8px;
+    }
+
+    .Timer .info{ font-size: 15px; }
+
+    .Timer .start,
+    .Timer .stop {
+        margin: 0 20px;
+        width: 120px;
+        height: 42px;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .Timer{ width: 420px; padding: 10px; }
+
+    .Timer .display{
+        width: 320px;
+        height: 230px;
+        font-size: 17px;
+    }
+
+    .Timer .reps > div{
+        min-height: 18px;
+        min-width: 18px;
+        margin: 0 8px;
+    }
+
+    .Timer .info{ font-size: 15px; }
+
+    .Timer .start,
+    .Timer .stop {
+        margin: 0 20px;
+        width: 120px;
+        height: 42px;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .Timer{ width: 550px; padding: 25px; }
+
+    .Timer .display{
+        width: 400px;
+        height: 280px;
+        font-size: 19px;
+    }
+
+    .Timer .reps > div{
+        min-height: 20px;
+        min-width: 20px;
+        margin: 0 10px;
+    }
+
+    .Timer .info{ font-size: 17px; }
+
+    .Timer .start,
+    .Timer .stop {
+        margin: 0 25px;
+        width: 130px;
+        height: 45px;
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .Timer{ width: 600px; padding: 20px; }
+
+    .Timer .display{
+        width: 420px;
+        height: 300px;
+        font-size: 21px;
+    }
+
+    .Timer .reps > div{
+        min-height: 20px;
+        min-width: 20px;
+        margin: 0 10px;
+    }
+
+    .Timer .info{ font-size: 19px; }
+
+    .Timer .start,
+    .Timer .stop {
+        margin: 0 25px;
+        width: 150px;
+        height: 50px;
+        font-size: 20px;
+    }
+}

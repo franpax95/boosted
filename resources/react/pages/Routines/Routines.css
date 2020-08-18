@@ -1,4 +1,88 @@
 .Routine{
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 10vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.exercise-wrapper{
+    padding: 5vh 5vw;
+}
+.buttons-wrapper{
+    width: 100%;
+    padding: 5vh 5vw;
+
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons-wrapper button{
+    border: solid 1.5px #262626;
+    color: #262626;
+    background-color: inherit;
+
+    transition: background-color .5s, font-size .2s;
+}
+.buttons-wrapper button:hover{
+    background-color: rgba(38, 38, 38, 0.1);
+}
+
+
+@media only screen and (max-width: 600px) {
+    .Routine{
+
+    }
+
+    .buttons-wrapper button{
+        padding: 10px 15px;
+        margin: 0 15px;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .Routine{
+        padding-left: 150px;
+        padding-bottom: 15vh;
+    }
+
+    .buttons-wrapper button{
+        padding: 12px 20px;
+        margin: 0 30px;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .Routine{
+        padding-left: 200px;
+    }
+
+    .buttons-wrapper button{
+        padding: 15px 25px;
+        font-size: 17px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .Routine{
+        padding-left: 250px;
+    }
+    .buttons-wrapper button{
+        padding: 15px 35px;
+        font-size: 19px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .Routine{
+        padding-left: 300px;
+    }
+    .buttons-wrapper button{
+        font-size: 20px;
+    }
 }

@@ -27,7 +27,7 @@ const RoutinesForm = (props) => {
     /** categories state */
     const { 
         loading: cat_loading, error: cat_error, categories, 
-        getCategories, unsetError: unsetCatError, cleanCategoryExercises
+        getCategories, unsetError: unsetCatError
     } = useContext(CategoriesContext);
 
     /** exercises state */
@@ -39,7 +39,7 @@ const RoutinesForm = (props) => {
     /** routines state */
     const {
         loading, error, routine,
-        getRoutine, unsetError
+        getRoutine, submit, unsetError
     } = useContext(RoutinesContext);
 
     /** form data */
@@ -86,27 +86,25 @@ const RoutinesForm = (props) => {
             setName(routine.name);
             setDescription(routine.description);
             console.log('ROUTINE EXERCISES', routine.exercises);
-            // setFormExercises();
+            setFormExercises(routine.exercises);
         }
     }, [routine]);
 
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        // console.log(name, categoryId, description, image);
+        console.log(name, description, formExercises);
 
-        // let ex;
-        // if(ex_id) ex = { id: ex_id, name, category_id: categoryId, description, image };
-        // else ex = { name, category_id: categoryId, description, image };
+        let newRoutine;
+        if(rout_id) newRoutine = { id: rout_id, name, description, exercises: formExercises };
+        else newRoutine = { name, description, exercises: formExercises };
 
-        // await submit(ex);
-        // if(!error && !loading) {
-        //     setSuccess(true);
-        //     cleanCategoryExercises();
-        // }
+        await submit(newRoutine);
+        if(!error && !loading) setSuccess(true);
     }
 
     const addFormExercise = e => {
+        e.preventDefault();
         const newFormExercises = formExercises.concat({ id: 0, nRep: 0, tOn: 0, tOff: 0 })
         setFormExercises(newFormExercises);
     }
@@ -130,7 +128,7 @@ const RoutinesForm = (props) => {
             <br />
             <TextArea name='description' placeholder={txt.input.description} value={description} onChange={e => setDescription(e.target.value)} />
             <br />
-            <button onClick={addFormExercise}>Añadir form exercise</button>
+            <button className="add-form-exercise" onClick={addFormExercise}>Añadir form exercise</button>
             <br />
             {formExercises.map((formExercise, index) => (
                 <ExerciseInput key={index} index={index} exercises={exercises} categories={categories} formExercises={formExercises} setFormExercises={setFormExercises} />

@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import './styles.css';
 
+import { useLanguage } from '../../hooks/useLanguage';
+
+import { animated, useSpring } from 'react-spring';
+
 export const Input = ({
     type = 'text',
     name = '',
@@ -31,8 +35,8 @@ export const ImageInput = ({ name = '', onChange = undefined }) => (
     <input className="ImageInput" type="file" name={name} onChange={onChange} />
 );
 
-export const SelectInput = ({ name = '', value = '', onChange = undefined, children }) => (
-    <select className="SelectInput" name={name} value={value} onChange={onChange}>
+export const SelectInput = ({ name = '', value = '', size = '', onChange = undefined, children }) => (
+    <select className={`SelectInput ${size}`} name={name} value={value} onChange={onChange}>
         {children}
     </select>
 );
@@ -48,16 +52,29 @@ export const ExerciseInput = ({
     formExercises,
     setFormExercises
 }) => {
+    /* lang hook */
+    const [texts, setLang] = useLanguage();
+    const { General: txt } = texts;
+
+    
+    /** filt exercises by category */
     const filt = (exs, cat_id) => exs.filter(ex => ex.category.id === cat_id);
 
+    /** select states */
     const [currentCategoryId, setCurrentCategoryId] = useState(categories.length ? categories[0].id : 0);
     const [currentExercises, setCurrentExercises] = useState(categories.length ? filt(exercises, categories[0].id) : []);
 
+    /** select update render */
     useLayoutEffect(() => {
-        setCurrentExercises(filt(exercises, currentCategoryId));
+        const currExs = filt(exercises, currentCategoryId);
+        setCurrentExercises(currExs);
+        const newFormExercises = [
+            ...formExercises.slice(0, index),
+            { ...formExercises[index], id: currExs[0].id },
+            ...formExercises.slice(index+1, formExercises.length)
+        ];
+        setFormExercises(newFormExercises);
     }, [currentCategoryId]);
-
-
 
     const onChange = e => {
         const newFormExercises = [
@@ -65,43 +82,32 @@ export const ExerciseInput = ({
             { ...formExercises[index], [e.target.name]: Number(e.target.value) },
             ...formExercises.slice(index+1, formExercises.length)
         ];
-        // newFormExercises[index] = { ...formExercises[index], [e.target.name]: Number(e.target.value) };
         setFormExercises(newFormExercises);
     }
 
+    /** opacity transition effect */
+    const spring = useSpring({
+        from: { opacity: 0 },
+        to: { opacity: 1 },
+        config: { duration: 400 }
+    });
+
     return (
-        <div className="ExerciseInput">
-            <SelectInput name="category_id" value={currentCategoryId} onChange={e => setCurrentCategoryId(Number(e.target.value))}>
+        <animated.div className="ExerciseInput" style={spring}>
+            <SelectInput name="category_id" value={currentCategoryId} onChange={e => setCurrentCategoryId(Number(e.target.value))} size='small'>
                 {categories.map(cat => <option key={cat.id} value={cat.id}>{cat.name}</option>)}
             </SelectInput>
 
-            <SelectInput name="id" value={formExercises[index].id} onChange={onChange}>
+            <SelectInput name="id" value={formExercises[index].id} onChange={onChange} size='small'>
                 {currentExercises.map(ex => <option key={ex.id} value={ex.id}>{ex.name}</option>)}
             </SelectInput>
 
-            <input 
-                type="number"
-                name="nRep" 
-                value={formExercises[index].nRep}
-                onChange={onChange}
-                min={0}
-            />
-
-            <input 
-                type="number"
-                name="tOn" 
-                value={formExercises[index].tOn}
-                onChange={onChange}
-                min={0}
-            />
-
-            <input 
-                type="number"
-                name="tOff" 
-                value={formExercises[index].tOff}
-                onChange={onChange}
-                min={0}
-            />
-        </div>
+            <span>{txt.nRep}</span>
+            <input type="number" className="NumberInput" name="nRep" value={formExercises[index].nRep} onChange={onChange} min={0} />
+            <span>{txt.tOn}</span>
+            <input type="number" className="NumberInput" name="tOn" value={formExercises[index].tOn} onChange={onChange} min={0} />
+            <span>{txt.tOff}</span>
+            <input type="number" className="NumberInput" name="tOff" value={formExercises[index].tOff} onChange={onChange} min={0} />
+        </animated.div>
     );
 }

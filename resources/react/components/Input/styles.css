@@ -102,6 +102,33 @@
 }
 .ImageInput:focus{ border-color: #262626; color: #262626; }
 
+.NumberInput{
+    padding-bottom: 3px;
+
+    outline: none;
+    border: none;
+    border-bottom: solid 2px darkgray;
+    color: darkgray;
+
+    transition: font-size .2s, border .5s, color .5s;
+}
+.NumberInput:focus{ border-color: #262626; color: #262626; }
+
+.ExerciseInput{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-end;
+}
+.ExerciseInput > input,
+.ExerciseInput > select {
+    margin: 0 5px;
+}
+.ExerciseInput span{
+    color: #666666;
+    text-align: right;
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -125,10 +152,23 @@
         width: 200px;
         font-size: 15px;
     }
+    .SelectInput.small{
+        width: 30%;
+        font-size: 14px;
+    }
 
     .ImageInput{
         width: 200px;
         font-size: 13px;
+    }
+
+    .NumberInput{
+        font-size: 16px;
+        width: 10%;
+    }
+
+    .ExerciseInput span{
+        display: none;
     }
 }
 
@@ -154,10 +194,23 @@
         width: 300px;
         font-size: 16px;
     }
+    .SelectInput.small{
+        width: 160px;
+        font-size: 15px;
+    }
 
     .ImageInput{
         width: 300px;
         font-size: 14px;
+    }
+
+    .NumberInput{
+        font-size: 20px;
+        width: 40px;
+    }
+
+    .ExerciseInput span{
+        font-size: 13px;
     }
 }
 
@@ -184,11 +237,24 @@
         max-width: calc(70%);
         font-size: 18px;
     }
+    .SelectInput.small{
+        width: 180px;
+        font-size: 17px;
+    }
 
     .ImageInput{
         width: 350px;
         max-width: calc(70%);
         font-size: 16px;
+    }
+
+    .NumberInput{
+        font-size: 22px;
+        width: 45px;
+    }
+
+    .ExerciseInput span{
+        font-size: 14px;
     }
 }
 
@@ -214,10 +280,23 @@
         width: 400px;
         font-size: 20px;
     }
+    .SelectInput.small{
+        width: 250px;
+        font-size: 19px;
+    }
 
     .ImageInput{
         width: 400px;
         font-size: 18px;
+    }
+
+    .NumberInput{
+        font-size: 24px;
+        width: 55px;
+    }
+
+    .ExerciseInput span{
+        font-size: 16px;
     }
 }
 

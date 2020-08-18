@@ -1,27 +1,72 @@
+.RoutinesForm .add-form-exercise{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    cursor: pointer;
+    outline: none;
+    border: solid 1.5px #262626;
+    border-radius: 4px;
+    background-color: rgba(8, 8, 8, 0.1);
+    color: #262626;
+
+    font-weight: 500;
+
+    transition: font-size .2s, color .5s, border .5s, background-color .5s;
+}
+.RoutinesForm .add-form-exercise:hover{ 
+    border-color: #666666; 
+    color: #666666;
+    background-color: whitesmoke;
+}
 
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .RoutinesForm{ padding: 20vh 15px; }
+    .RoutinesForm .add-form-exercise{
+        width: 130px;
+        height: 28px;
+        font-size: 14px;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .RoutinesForm{ padding: 10vh 5vw; padding-top: 20vh; }
+    .RoutinesForm .add-form-exercise{
+        width: 150px;
+        height: 31px;
+        font-size: 16px;
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     .RoutinesForm{ padding: 10vh 6vw; }
+    .RoutinesForm .add-form-exercise{
+        width: 160px;
+        height: 34px;
+        font-size: 17px;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     .RoutinesForm{ padding: 10vh 8vw; }
+    .RoutinesForm .add-form-exercise{
+        width: 180px;
+        height: 37px;
+        font-size: 18px;
+    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     .RoutinesForm{ padding: 10vh 10vw; }
+    .RoutinesForm .add-form-exercise{
+        width: 200px;
+        height: 40px;
+        font-size: 20px;
+    }
 }

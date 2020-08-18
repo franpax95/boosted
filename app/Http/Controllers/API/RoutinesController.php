@@ -33,17 +33,14 @@ class RoutinesController extends Controller
             $exercises = [];
             $routine->exercises = json_decode($routine->exercises);
 
-            $arr = $routine->exercises;
-            foreach($arr as $exercise){
-                $ex = Exercise::where('id', $exercise->id)->first();
-                $category = Category::where([
-                    'id' => $ex->category_id
-                ])->get();
+            foreach($routine->exercises as $ex){
+                $exercise = Exercise::where('id', $ex->id)->first();
+                $category = Category::where('id', $exercise->category_id)->first();
         
-                $ex->category = $category[0];
-                unset($ex->category_id);
+                $exercise->category = $category;
+                unset($exercise->category_id);
 
-                array_push($exercises, $ex);
+                array_push($exercises, $exercise);
             }
 
             return response()->json(['success' => [
@@ -70,4 +67,19 @@ class RoutinesController extends Controller
 
         return response()->json($routine, 201);
     }
+
+    public function delete(int $id){
+        try{
+            $routine = Routine::findOrFail($id);
+            $routine->delete();
+            return response()->json(null, 204);
+        }catch(ModelNotFoundException $e){
+            return response()->json(['error' => 'The routine does not exist'], 404);
+        }
+    }
+
+    // public function delete(Routine $routine){
+    //     $routine->delete();
+    //     return response()->json(null, 204);
+    // }
 }

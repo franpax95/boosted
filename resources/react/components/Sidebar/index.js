@@ -20,7 +20,7 @@ export const RoutineSidebar = ({ exercises = [], onClick, active = -1 }) => (
             onClick={() => onClick(index)}
             className={(active === index) ? 'active' : ''}
         >
-            <b>{index + 1}</b>.-{exercise.name}
+            {exercise.name}
         </button>)}
     </div>
 );
@@ -68,24 +68,24 @@ const Sidebar = () => {
             <Link to="/" className="logo" onClick={() => setDisplay(false)}>{txt.home}</Link>
 
             <NavLink to="/categories" className="main" activeClassName="main active" onClick={() => setDisplay(false)}>{txt.categories}</NavLink>
-            <NavLink to="/addcategory" className="sub" activeClassName="sub active" onClick={() => setDisplay(false)}>{txt.addcategory}</NavLink>
+            <NavLink to="/category/add" className="sub" activeClassName="sub active" onClick={() => setDisplay(false)}>{txt.addcategory}</NavLink>
             
             <NavLink to="/exercises" className="main" activeClassName="main active" onClick={() => setDisplay(false)}>{txt.exercises}</NavLink>
-            <NavLink to="/addexercise" className="sub" activeClassName="sub active" onClick={() => setDisplay(false)}>{txt.addexercise}</NavLink>
+            <NavLink to="/exercise/add" className="sub" activeClassName="sub active" onClick={() => setDisplay(false)}>{txt.addexercise}</NavLink>
             
             <NavLink to="/routines" className="main" activeClassName="main active" onClick={() => setDisplay(false)}>{txt.routines}</NavLink>
-            <NavLink to="/addroutine" className="sub" activeClassName="sub active" onClick={() => setDisplay(false)}>{txt.addroutine}</NavLink>
+            <NavLink to="/routine/add" className="sub" activeClassName="sub active" onClick={() => setDisplay(false)}>{txt.addroutine}</NavLink>
 
             <br /><br />
 
             {isAuth
                 ? <>
-                    <a className="main" href="/profile"><FaRegUser />{user.name}</a>
+                    <Link className="main" to="/profile"><FaRegUser />{user.name}</Link>
                     <button className="main" onClick={() => localLogOut()}><GoSignOut />{txt.logout}</button>
                 </>
                 : <>
-                    <a className="main" href="/login"><FaRegUser />{txt.login}</a>
-                    <a className="main" href="/register"><GoSignIn />{txt.register}</a>
+                    <Link className="main" to="/login"><FaRegUser />{txt.login}</Link>
+                    <Link className="main" to="/register"><GoSignIn />{txt.register}</Link>
                 </>
             }
 

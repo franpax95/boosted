@@ -66,7 +66,7 @@ const Provider = ({ children }) => {
             setCategory({});
             setCategories([]); 
             setLoading(false);
-        }catch{
+        }catch(error){
             setError(error);
             setLoading(false);
         }
@@ -77,8 +77,8 @@ const Provider = ({ children }) => {
         try{
             await axios.delete(`/api/categories/${user_id}/${cat_id}`);
 
-            setCategory({});
             setCategories([]);
+            setCategory({});
             setLoading(false);
         }catch(error){
             setError(error);

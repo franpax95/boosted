@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.css';
+import { useSpring, animated } from 'react-spring';
 
 export const Spinner = ({ size = '64px' }) => {
     const divSize = `${parseInt(size)}px`;
+    
+    const spring = useSpring({
+        from: { opacity: 0 },
+        to: { opacity: 1 },
+        config: { duration: 1000 }
+    });
+
     return (
-        <div className="Spinner" style={{ width: size, height: size }}>
+        <animated.div className="Spinner" style={{ ...spring, width: size, height: size }}>
             <div style={{ width: divSize, height: divSize }}></div>
             <div style={{ width: divSize, height: divSize }}></div>
             <div style={{ width: divSize, height: divSize }}></div>
             <div style={{ width: divSize, height: divSize }}></div>
-        </div>
-    )
+        </animated.div>
+    );
 };
 
 export const Fatal = ({ error = 'ERROR!', className = '' }) => (

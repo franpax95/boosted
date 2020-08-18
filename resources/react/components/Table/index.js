@@ -58,7 +58,7 @@ export const ExercisesTable = ({ exercises = [], deleteExercise = undefined }) =
 
 
 
-const RoutinesElement = ({ id, name, description, onDelete }) => {
+const RoutinesElement = ({ id, name, description, deleteRoutine }) => {
     /** totalHeight = initialHeight + expandedHeight */
     const initialHeight = '100px';
     const totalHeight = '350px';
@@ -80,6 +80,9 @@ const RoutinesElement = ({ id, name, description, onDelete }) => {
         config: { duration: 500 }
     });
 
+    /** on click delete event */
+    const onDeleteClick = e => { deleteRoutine(id); }
+
     return (
         <animated.div className="RoutinesElement" style={spring}>
             <div className="header" style={{ height: initialHeight }} onClick={() => setDisplay(!display)}>{name}</div>
@@ -88,15 +91,15 @@ const RoutinesElement = ({ id, name, description, onDelete }) => {
                 <div className="buttons" style={{ height: buttonsHeight }}>
                     <Link to={`/routines/${id}`} className="start"><FaPlayCircle />{txt.start}</Link>
                     <Link to={`/routine/edit/${id}`} className="edit"><FaEdit />{txt.edit}</Link>
-                    <button className="delete" onClick={() => onDelete()}><TiDelete />{txt.delete}</button>
+                    <button className="delete" onClick={onDeleteClick}><TiDelete />{txt.delete}</button>
                 </div>
             </div>
         </animated.div>
     );
 }
 
-export const RoutinesTable = ({ routines = [], deleteRoutine = undefined }) => (
+export const RoutinesTable = ({ routines = [], deleteRoutine }) => (
     <div className="RoutinesTable">
-        {routines.map(routine => <RoutinesElement key={routine.id} {...routine} onDelete={deleteRoutine} />)}
+        {routines.map(routine => <RoutinesElement key={routine.id} {...routine} deleteRoutine={deleteRoutine} />)}
     </div>
 );
