@@ -9,6 +9,7 @@ import { Spinner, Fatal, Layout, UtilWrapper } from '../../components/util';
 import { CategoriesTable, ExercisesTable } from '../../components/Table';
 
 
+
 const Categories = (props) => {
     /* lang hook */
     const [texts, setLang] = useLanguage();

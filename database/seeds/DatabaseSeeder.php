@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
             Mantener X segundos y volver a la posición inicial.
             Repetir hacia el otro lado.',
             'category_id' => 1,
-            'image' => '/images/estiramiento_inclinacion_lateral.JPG'
+            'image' => '/images/estiramiento_cuello_flexion.gif'
         ]);
 
         Exercise::create([
@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Con una mano agarrada al asiento, realizar flexión máxima y rotación del cuello hacia el otro lado.
             Mantener X segundos y volver a la posición inicial.',
             'category_id' => 1,
-            'image' => '/images/estiramiento_flexion_con_rotacion.JPG'
+            'image' => '/images/estiramiento_cuello_rotacion.jpg'
         ]);
 
         Exercise::create([
@@ -92,7 +92,7 @@ class DatabaseSeeder extends Seeder
             
             La pelvis se mantiene fija y realizamos una inclinación de la columna un brazo por arriba formando una "C". Al realizar la lateroflexión hay que procurar elongar la columna. Podemos realizarlo sentados en una silla.',
             'category_id' => 1,
-            'image' => '/images/estiramiento_sirena.JPG'
+            'image' => '/images/estiramiento_mermaid.jpg'
         ]);
 
         Exercise::create([
@@ -101,7 +101,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Frente a la pared, elevar un brazo deslizándolo lo más alto posible, mantener X segundos y descenderlo lentamente.
             Repetir el ejercicio con el brazo contrario.',
             'category_id' => 1,
-            'image' => '/images/elevacion_alterna_manos.JPG'
+            'image' => '/images/elevacion_alterna_manos.jpg'
         ]);
 
         Exercise::create([
@@ -111,7 +111,7 @@ class DatabaseSeeder extends Seeder
             Mantener X segundos y volver a la posición inicial.
             Repetir con la otra pierna.',
             'category_id' => 2,
-            'image' => '/images/estiramiento_psoas.JPG'
+            'image' => '/images/estiramiento_psoas.gif'
         ]);
 
         Exercise::create([
@@ -119,7 +119,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Estiramiento de psoas ilíaco',
             'description' => 'Colócate con una pierna estirada (atrás) y la otra flexionada (delante). En esta postura trate de aproximar la pelvis al suelo lo máximo posible. Mantenga la posición y repita el movimiento con la otra pierna. En esta maniobra el músculo psoas que estiramos es el de la pierna extendida.',
             'category_id' => 2,
-            'image' => '/images/psoas_iliaco.JPG'
+            'image' => '/images/estiramiento_psoas_iliaco.gif'
         ]);
 
         Exercise::create([
@@ -129,7 +129,7 @@ class DatabaseSeeder extends Seeder
             Deslizar las manos hacia delante al finalizar el movimiento.
             Mantener X segundos y volver a la posición inicial.',
             'category_id' => 1,
-            'image' => '/images/estiramiento_lumbosacro_suelo.JPG'
+            'image' => '/images/estiramiento_lumbosacro_suelo.gif'
         ]);
 
         Exercise::create([
@@ -139,7 +139,7 @@ class DatabaseSeeder extends Seeder
             Empujar la parte superior de las piernas hacia el pecho (no hace falta levanta la cabeza, ni forzar el cuello).
             Mantener X segundos y volver a la posición inicial.',
             'category_id' => 1,
-            'image' => '/images/estiramiento_lumbosacro_tumbado.JPG'
+            'image' => '/images/estiramiento_lumbrosacro_rodillas_pecho.jpg'
         ]);
 
         Exercise::create([
@@ -150,7 +150,7 @@ class DatabaseSeeder extends Seeder
             Flexionar una cadera y mantener el muslo elevado en esta posición. Extender la rodilla lo máximo posible. Mantener la posición X segundos y volver a la posición inicial.
             Cuando la pierna esté arriba, lleva los dedos de los pies hacia ti.',
             'category_id' => 2,
-            'image' => '/images/estiramiento_isquiotibiales_tumbado.JPG'
+            'image' => '/images/estiramiento_isquios_tumbado.jpg'
         ]);
 
         Exercise::create([
@@ -169,7 +169,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Ejercicio de movilidad lumbar:
             Apretar el abdomen y aplanar la columna lumbar. Mantener X segundos y volver a la posición inicial.',
             'category_id' => 1,
-            'image' => '/images/bascula_pelvica_sentado.JPG'
+            'image' => '/images/bascula_pelvica_sentado.jpg'
         ]);
 
         Exercise::create([
@@ -180,7 +180,7 @@ class DatabaseSeeder extends Seeder
             
             Mantener 5 segundos y volver a la posición inicial.',
             'category_id' => 1,
-            'image' => '/images/bascula_pelvica_supino.JPG'
+            'image' => '/images/bascula_pelvica_supino.jpg'
         ]);
 
         Exercise::create([
@@ -191,7 +191,7 @@ class DatabaseSeeder extends Seeder
             Arquear la columna hacia abajo, extendiendo el cuello.
             Mantener X segundos.',
             'category_id' => 1,
-            'image' => '/images/gato-camello.JPG'
+            'image' => '/images/gato_camello.jpg'
         ]);
 
         Exercise::create([
@@ -225,7 +225,7 @@ class DatabaseSeeder extends Seeder
             
             Una vez arriba, apretar los glúteos y mantener la posición en la que el cuerpo se mantiene en línea recta, desde el cuello hasta las rodillas.',
             'category_id' => 1,
-            'image' => '/images/eleva-cadera.jpg'
+            'image' => '/images/eleva_cadera.jpg'
         ]);
 
         Exercise::create([
@@ -233,7 +233,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Abdominales inferiores',
             'description' => 'Boca arriba, elevar las piernas un poco y mantener X segundos, apretando los abdominales.',
             'category_id' => 3,
-            'image' => null
+            'image' => '/images/abdominales_inferiores.gif'
         ]);
 
         Exercise::create([
@@ -247,7 +247,7 @@ class DatabaseSeeder extends Seeder
             Cruzar las piernas derecha a izquierda e izquierda a derecha.
             Se COMPLETA el ejercicio cuando has pasado ambas piernas por encima de la otra.',
             'category_id' => 3,
-            'image' => '/images/tijeras_bajas.JPG'
+            'image' => '/images/tijeras_bajas.gif'
         ]);
 
         Exercise::create([
@@ -259,7 +259,7 @@ class DatabaseSeeder extends Seeder
             Repetir con la otra pierna.
             Es importante apretar los abdominales cada vez que la rodilla intente tocar el codo. Cuanto más ritmo haciendo el ejercicio, mejor.',
             'category_id' => 3,
-            'image' => '/images/el_escalador.JPG'
+            'image' => '/images/el_escalador.gif'
         ]);
 
         Exercise::create([
@@ -269,7 +269,7 @@ class DatabaseSeeder extends Seeder
 
             Debemos mantener esta posición sin movernos durante el tiempo que podamos sin llegar a forzar mucho la posición.',
             'category_id' => 3,
-            'image' => '/images/plancha-frontal.jpg'
+            'image' => '/images/plancha_frontal.jpg'
         ]);
 
         Exercise::create([
@@ -404,7 +404,7 @@ class DatabaseSeeder extends Seeder
             
             No permita que el cuello se hunda en su torso y los hombros asciendan hasta el nivel de sus oídos, sino que intente solo formar un ángulo de 90 grados con los brazos.',
             'category_id' => 4,
-            'image' => '/images/fondo_sobre_banco.JPG'
+            'image' => '/images/fondo_sobre_banco.gif'
         ]);
 
         Exercise::create([
@@ -488,7 +488,7 @@ class DatabaseSeeder extends Seeder
             
             De manera secundaria son trabajados el deltoides anterior que fija el hombro, los bíceps que colaboran con la flexión de brazos y el abdomen que colabora manteniendo la postura adecuada durante el ejercicio.',
             'category_id' => 2,
-            'image' => null
+            'image' => '/images/flexiones_suelo.gif'
         ]);
     }
 }
