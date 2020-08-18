@@ -25,7 +25,7 @@ class CategoriesController extends Controller
         return response()->json(['success' => $categories], 200);
     }
 
-    public function show(int  $id){
+    public function show(int $id){
         try{
             $category = Category::findOrFail($id);
             $user = Auth::user();
@@ -58,13 +58,23 @@ class CategoriesController extends Controller
         return response()->json($category, 201);
     }
 
-    public function update(Request $request, User $user, Category $category){
-        $category->update($request->all());
-        return response()->json($category, 200);
+    public function update(int $id, Request $request){
+        try{
+            $category = Category::findOrFail($id);
+            $category->update($request->all());
+            return response()->json($category, 200);
+        }catch(ModelNotFoundException $e){
+            return response()->json(['error' => 'The category does not exist'], 401);
+        } 
     }
 
-    public function delete(User $user, Category $category){
-        $category->delete();
-        return response()->json(null, 204);
+    public function delete(int $id){
+        try{
+            $category = Category::findOrFail($id);
+            $category->delete();
+            return response()->json(null, 204);
+        }catch(ModelNotFoundException $e){
+            return response()->json(['error' => 'The category does not exist'], 404);
+        }
     }
 }

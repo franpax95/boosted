@@ -50,7 +50,7 @@ const CategoriesForm = (props) => {
 
     /** set input values effect when category update cause of fetch effect */
     useEffect(() => {
-        if(cat_id && Object.values(exercise).length) 
+        if(cat_id && Object.values(category).length) 
             setName(`${category.name}`);
     }, [category]);
 

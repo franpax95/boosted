@@ -77,9 +77,4 @@ class RoutinesController extends Controller
             return response()->json(['error' => 'The routine does not exist'], 404);
         }
     }
-
-    // public function delete(Routine $routine){
-    //     $routine->delete();
-    //     return response()->json(null, 204);
-    // }
 }

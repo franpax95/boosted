@@ -64,7 +64,7 @@ class ExercisesController extends Controller
         return response()->json(['success' => $exercise], 200);
     }
 
-    public function update(Request $request, int $id){
+    public function update(int $id, Request $request){
         try{
             $exercise = Exercise::findOrFail($id);
             $user = Auth::user();
@@ -91,15 +91,18 @@ class ExercisesController extends Controller
         }
     }
 
-    public function delete(User $user, Exercise $exercise){
-        if (strpos($exercise->image, 'storage') !== false){
-            $url_img = str_replace('/storage', '', $exercise->image);
-            Storage::disk('public')->delete($url_img);
+    public function delete(int $id){
+        try{
+            $exercise = Exercise::findOrFail($id);
+            if (strpos($exercise->image, 'storage') !== false){
+                $url_img = str_replace('/storage', '', $exercise->image);
+                Storage::disk('public')->delete($url_img);
+            }
+
+            $exercise->delete();
+            return response()->json(null, 204);
+        }catch(ModelNotFoundException $e){
+            return response()->json(['error' => 'The category does not exist'], 404);
         }
-            
-
-        $exercise->delete();
-
-        return response()->json(null, 204);
     }
 }

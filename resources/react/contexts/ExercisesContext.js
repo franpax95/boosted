@@ -72,16 +72,33 @@ const Provider = ({ children }) => {
         }
     }
 
-    const unsetError = () => { 
-        setError(''); 
+    const deleteExercise = async (id) => {
+        setLoading(true);
+
+        try{
+            const token = sessionStorage.getItem('token');
+            const config = { headers: { Authorization: `Bearer ${token}` } };
+            await axios.delete(`/api/exercises/${id}`, config);
+            setLoading(false);
+
+            setExercise({});
+            setExercises([]);
+        }catch(error){
+            setError(error);
+            setLoading(false);
+        }
     }
+
+    const unsetError = () => { setError(''); }
+
+    const cleanExercises = () => { if(exercises.length) setExercises([]); }
 
 
 
 
     const value = {
         loading, error, exercise, exercises,
-        getExercises, getExercise, submit, unsetError,
+        getExercises, getExercise, submit, deleteExercise, unsetError, cleanExercises
     };
     return <Context.Provider value={value}>{children}</Context.Provider>;
 }

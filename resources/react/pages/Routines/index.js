@@ -32,6 +32,13 @@ const Routines = props => {
     /** Routine related state */
     const [index, setIndex] = useState(0);
 
+    /** manual transition effect */
+    const changeIndex = (newIndex) => {
+        RoutinesRef.current.style.opacity = 0;
+        setTimeout(() => { setIndex(newIndex); }, 200);
+        setTimeout(() => { RoutinesRef.current.style.opacity = 1; }, 500);
+    }
+
     /** id by rest url */
     const { id: rout_id } = props.match.params;
 
@@ -55,12 +62,6 @@ const Routines = props => {
     /** prev and next onClick events */
     const prev = () => { if(index > 0) changeIndex(index - 1); }
     const next = () => { if(index < exercises.length-1) changeIndex(index + 1); }
-
-    const changeIndex = (newIndex) => {
-        RoutinesRef.current.style.opacity = 0;
-        setTimeout(() => { setIndex(newIndex); }, 200);
-        setTimeout(() => { RoutinesRef.current.style.opacity = 1; }, 500);
-    }
     
     if(error)   return <UtilWrapper><Fatal error={error} /></UtilWrapper>;
     if(loading) return <UtilWrapper><Spinner /></UtilWrapper>;

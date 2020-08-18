@@ -22,7 +22,7 @@ export const CategoriesTable = ({ categories = [], deleteCategory = undefined })
                 <div className="element" key={category.id}>
                     <Link to={`/categories/${category.id}`} className="main">{category.name}</Link>
                     <Link to={`/category/edit/${category.id}`} className="edit">{txt.edit}</Link>
-                    <button className="delete" onClick={() => deleteCategory()}>{txt.delete}</button>
+                    <button className="delete" onClick={() => deleteCategory(category.id)}>{txt.delete}</button>
                 </div>
             ))}
         </div>
@@ -49,7 +49,7 @@ export const ExercisesTable = ({ exercises = [], deleteExercise = undefined }) =
                     </Link>
 
                     <Link to={`/exercise/edit/${exercise.id}`} className="edit">{txt.edit}</Link>
-                    <button className="delete" onClick={() => deleteExercise()}>{txt.delete}</button>
+                    <button className="delete" onClick={() => deleteExercise(exercise.id)}>{txt.delete}</button>
                 </div>
             ))}
         </div>

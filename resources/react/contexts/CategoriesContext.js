@@ -50,7 +50,7 @@ const Provider = ({ children }) => {
         }
     }
 
-    const submit = async (category) => {
+    const submit = async category => {
         const isEditing = !!category.id;
         setLoading(true);
 
@@ -72,29 +72,37 @@ const Provider = ({ children }) => {
         }
     }
 
-    const deleteCategory = async (user_id, cat_id) => {
+    const deleteCategory = async (id) => {
         setLoading(true);
+
         try{
-            await axios.delete(`/api/categories/${user_id}/${cat_id}`);
+            const token = sessionStorage.getItem('token');
+            const config = { headers: { Authorization: `Bearer ${token}` } };
+            await axios.delete(`/api/categories/${id}`, config);
+            setLoading(false);
 
             setCategories([]);
             setCategory({});
-            setLoading(false);
+            setExercises([]);
         }catch(error){
             setError(error);
+            setLoading(false);
         }
     }
 
-    const unsetError = () => { 
-        setError(''); 
-    }
+    const unsetError = () => { setError(''); }
 
-    const cleanCategoryExercises = () => { setExercises([]); }
+    const cleanCategoryExercises = () => { if(exercises.length) setExercises([]); }
+    const cleanCategory = () => { if(Object.values(category).length) setCategory({}); }
+
+
+
 
 
     const value = {
         loading, error, categories, category, exercises,
-        getCategories, getCategory, deleteCategory, submit, unsetError, cleanCategoryExercises
+        getCategories, getCategory, deleteCategory, submit,
+        unsetError, cleanCategoryExercises, cleanCategory
     };
     return <Context.Provider value={value}>{children}</Context.Provider>;
 }

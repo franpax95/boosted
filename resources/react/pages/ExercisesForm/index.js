@@ -25,7 +25,7 @@ const ExercisesForm = (props) => {
     /** categories state */
     const { 
         loading: cat_loading, error: cat_error, categories, 
-        getCategories, unsetError: unsetCatError, cleanCategoryExercises
+        getCategories, unsetError: unsetCatError, cleanCategory
     } = useContext(CategoriesContext);
 
     /** exercises state */
@@ -93,7 +93,7 @@ const ExercisesForm = (props) => {
         await submit(ex);
         if(!error && !loading) {
             setSuccess(true);
-            cleanCategoryExercises();
+            cleanCategory();
         }
     }
 
