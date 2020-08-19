@@ -85,7 +85,7 @@ const Sidebar = () => {
                 </>
                 : <>
                     <Link className="main" to="/login"><FaRegUser />{txt.login}</Link>
-                    <Link className="main" to="/register"><GoSignIn />{txt.register}</Link>
+                    <Link className="main" to="/signup"><GoSignIn />{txt.signup}</Link>
                 </>
             }
 

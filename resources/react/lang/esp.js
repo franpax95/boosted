@@ -58,7 +58,7 @@ export const Login = {
 export const SignUp = {
     title: 'Registrarse',
     subtitle: <i>Bienvenido a nuestra familia <b>soldado</b></i>,
-    description: '¿Preparado para seguir con tu entrenamiento? Para que alargarlo... ¡Introduce ya tus datos!',
+    description: '¿Para qué esperar? Hazte ya una cuenta y empieza a ponerte en forma',
     formtitle: 'Necesitamos...',
     input: {
         name: 'Tu nombre',
@@ -116,7 +116,7 @@ export const ExercisesForm = {
     },
     edit: {
         title: '¿Crees que puedes mejorar más este ejercicio?',
-        subtitle: 'Demuéstranoslo!',
+        subtitle: '¡Demuéstranoslo!',
         description: ''
     },
     input: {
@@ -125,7 +125,7 @@ export const ExercisesForm = {
         submit: 'Guardar'
     },
     prompt: {
-        name: 'No has guardado tu categoría, ¿estás seguro de que deseas salir?'
+        name: 'No has guardado tu ejercicio, ¿estás seguro de que deseas salir?'
     },
     // validate: {
     //     name: 'El nombre es importante. Algo tendrá que tener tu categoría...'
@@ -164,11 +164,11 @@ export const RoutinesForm = {
         submit: 'Guardar'
     },
     prompt: {
-        name: 'No has guardado tu categoría, ¿estás seguro de que deseas salir?'
+        name: 'No has guardado tu rutina, ¿estás seguro de que deseas salir?'
     },
-    validate: {
-        name: 'El nombre es importante. Algo tendrá que tener tu categoría...'
-    }
+    // validate: {
+    //     name: 'El nombre es importante. Algo tendrá que tener tu categoría...'
+    // }
 };
 
 
