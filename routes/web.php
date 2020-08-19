@@ -22,6 +22,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('app', ['user' => $user]);
 // } )->where('path', '.*');
 
-Route::get( '/{path?}', function(){
-    return view( 'app' );
-} )->where('path', '.*');
+Route::get('/{path?}', function() {
+    return view('app');
+})->where('path', '.*')->middleware('redirectSecureHttp');
