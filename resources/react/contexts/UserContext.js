@@ -19,23 +19,17 @@ const Provider = ({ children, _user = {} }) => {
             const { token } = response.data.success;
             window.sessionStorage.setItem('token', token);
             setIsAuth(true);
-
-            // const config = { headers: { Authorization: `Bearer ${token}` } };
-            // const response2 = await axios.get('/api/user_detail', config);
-
-            // setUser(response2.data.success);
-            // setLoading(false);
             getUserDetails();
         }catch(error){
             setError(error);
         }
     }
 
-    const signup = async (name, email, password, password_verification) => {
+    const signup = async (name, email, password, password_confirmation) => {
         setLoading(true);
 
         try{
-            const userData = { name, email, password, password_verification };
+            const userData = { name, email, password, password_confirmation };
             const response = await axios.post('/api/register', userData);
 
             const { token } = response.data.success;
