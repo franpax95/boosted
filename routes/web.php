@@ -25,6 +25,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/{path?}', function() {
-    \Artisan::call('passport:install');
-    //return view('app');
+    //\Artisan::call('passport:install');
+    return view('app');
 })->where('path', '.*');
