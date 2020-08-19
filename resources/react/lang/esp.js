@@ -32,6 +32,11 @@ export const Navbar = {
 
 
 /** pages */
+export const Home = {
+    title: '¡Bienvenid@ a BOOSTED!',
+    subtitle: <>Regístrate y empieza a personalizar tus rutinas.<br />Como quieras, donde quieras y cuando quieras.</>
+};
+
 export const Login = {
     title: 'Iniciar Sesión',
     subtitle: <i>Bienvenido de nuevo <b>guerrero</b></i>,
@@ -174,6 +179,7 @@ const espTexts = {
     /** specific components */
     Navbar,
     /** pages */
+    Home,
     Login, SignUp, 
     Categories, CategoriesForm,
     Exercises, ExercisesForm,

@@ -1,0 +1,119 @@
+.Home{
+    min-height: 100vh;
+    width: 100%;
+}
+
+.Home .header{
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #666666;
+    background-image: url("/util/home/header.jpg");
+    background-size: cover;
+    background-position: center center;
+    color: white;
+}
+.Home .header .title{
+    font-family: 'Bebas Neue', cursive;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 2px #262626;
+    transition: font-size .2s;
+}
+.Home .header .subtitle{
+    font-weight: 400;
+    text-align: center;
+    text-shadow: 1.5px 1.5px 1.5px #262626;
+    transition: font-size .2s;
+}
+.Home .header button{
+    margin-top: 10vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: transparent;
+    border: solid 2px white;
+    border-radius: 50%;
+    color: white;
+
+    text-shadow: 2px 2px 2px #262626;
+    font-weight: bolder;
+    transition: font-size .2s, background-color .3s;
+}
+.Home .header button:hover{ background-color: rgba(255, 255, 255, .2); }
+.Home .header button:active{ background-color: rgba(255, 255, 255, .5); }
+
+.Home .section{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+.Home .section > div{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+
+    height: 200px;
+    width: 50%;
+    border: solid 1px red;
+}
+
+@media only screen and (max-width: 600px) {
+    .Home .header .title{ font-size: 30px; }
+    .Home .header .subtitle{ font-size: 18px; }
+    .Home .header button{
+        width: 60px;
+        height: 60px;
+        font-size: 40px; 
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .Home .header{ background-attachment: fixed; }
+    .Home .header .title{ font-size: 40px; letter-spacing: 2px; }
+    .Home .header .subtitle{ font-size: 30px; letter-spacing: 1px; }
+    .Home .header button{
+        width: 75px;
+        height: 75px;
+        font-size: 50px; 
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .Home .header{ height: calc(100vh - 80px); }
+    .Home .header .title{ font-size: 50px; }
+    .Home .header .subtitle{ font-size: 35px; }
+    .Home .header button{
+        width: 90px;
+        height: 90px;
+        font-size: 60px; 
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .Home .header .title{ font-size: 60px; }
+    .Home .header .subtitle{ font-size: 45px; }
+    .Home .header button{
+        width: 105px;
+        height: 105px;
+        font-size: 70px; 
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .Home .header .title{ font-size: 70px; }
+    .Home .header .subtitle{ font-size: 55px; }
+    .Home .header button{
+        width: 120px;
+        height: 120px;
+        font-size: 80px; 
+    }
+}
