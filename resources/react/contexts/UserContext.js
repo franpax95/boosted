@@ -50,6 +50,7 @@ const Provider = ({ children, _user = {} }) => {
 
             setSessionCookie(JSON.stringify({ user, token }));
             setIsAuth(true);
+            setUser(user);
 
             // getUserDetails();
         }catch(error){
