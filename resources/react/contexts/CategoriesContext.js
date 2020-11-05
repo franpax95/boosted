@@ -26,7 +26,8 @@ const Provider = ({ children }) => {
             setCategories(response.data.success);
         }catch(error){
             console.error(error);
-            setError('Something is wrong. Please, try again later.');
+            //setError('Something is wrong. Please, try again later.');
+            setError(error.response.data.error);
             setLoading(false);
         }
     }
@@ -45,7 +46,8 @@ const Provider = ({ children }) => {
             setExercises(exercises);
         }catch(error){
             console.error(error);
-            setError('Something is wrong. Please, try again later.');
+            //setError('Something is wrong. Please, try again later.');
+            setError(error.response.data.error);
             setLoading(false);
         }
     }

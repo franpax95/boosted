@@ -76,16 +76,16 @@ const Home = (props) => {
             <div className="header">
                 <div className="title">{txt. title}</div>
                 <div className="subtitle">{txt.subtitle}</div>
-                <button onClick={onScrollClick}><BsArrowBarDown /></button>
+                {/* <button onClick={onScrollClick}><BsArrowBarDown /></button> */}
             </div>
-            <div className="section" onWheel={onWheel}>
+            {/* <div className="section" onWheel={onWheel}>
                 <animated.div className="left" style={{ ...leftSpring, ...opacitySpring }}>
                     {display ? 'true' : 'false'}
                 </animated.div>
                 <animated.div className="right" style={{ ...rightSpring, ...opacitySpring }}>
                     {display ? 'true' : 'false'}
                 </animated.div>
-            </div>
+            </div> */}
         </div>
     );
 }

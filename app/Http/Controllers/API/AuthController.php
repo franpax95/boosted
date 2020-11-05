@@ -20,7 +20,8 @@ class AuthController extends Controller {
 
         if( auth()->attempt($credentials) ){
             $user = Auth::user();
-            $success['token'] =  $user->createToken('AppName')->accessToken;
+            $success['token'] = $user->createToken('AppName')->accessToken;
+            $success['user'] = $user;
             return response()->json(['success' => $success], 200);
         } else {
             return response()->json(['error' => 'Unauthorised'], 401);
@@ -41,7 +42,8 @@ class AuthController extends Controller {
         $data = $request->all();
         $data['password'] = Hash::make($data['password']);
         $user = User::create($data);
-        $success['token'] =  $user->createToken('AppName')->accessToken;
+        $success['token'] = $user->createToken('AppName')->accessToken;
+        $success['user'] = $user;
         return response()->json(['success'=>$success], 200);
     }
 

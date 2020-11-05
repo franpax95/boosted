@@ -29,7 +29,8 @@ const Provider = ({ children }) => {
             console.error(error);
             // console.log(typeof(error));
             // console.log(Object.values(error));
-            setError('Something is wrong. Please, try again later.');
+            // setError('Something is wrong. Please, try again later.');
+            setError(error.response.data.error);
             setLoading(false);
         }
     }

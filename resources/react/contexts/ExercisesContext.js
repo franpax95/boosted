@@ -21,7 +21,8 @@ const Provider = ({ children }) => {
         }
         catch(error){
             console.error(error);
-            setError('Something is wrong. Please, try again later.');
+            //setError('Something is wrong. Please, try again later.');
+            setError(error.response.data.error);
             setLoading(false);
         }
     }
@@ -39,7 +40,8 @@ const Provider = ({ children }) => {
         }
         catch(error){
             console.error(error);
-            setError('Something is wrong. Please, try again later.');
+            //setError('Something is wrong. Please, try again later.');
+            setError(error.response.data.error);
             setLoading(false);
         }
     }
