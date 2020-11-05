@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import axios from 'axios';
+import { Context as UserContext } from './UserContext';
 
 const Context = React.createContext([{}, () => {}]);
 
@@ -8,13 +10,14 @@ const Provider = ({ children }) => {
     const [exercise, setExercise] = useState({});
     const [exercises, setExercises] = useState([]);
 
+    const { token } = useContext(UserContext);
+    const config = () => ({ headers: { Authorization: `Bearer ${token()}` } });
+
     const getExercises = async () => {
         setLoading(true);
 
         try{
-            const token = sessionStorage.getItem('token');
-            const config = { headers: { Authorization: `Bearer ${token}` } };
-            const response = await axios.get(`/api/exercises`, config);
+            const response = await axios.get(`/api/exercises`, config());
 
             setLoading(false);
             setExercises(response.data.success);
@@ -31,9 +34,7 @@ const Provider = ({ children }) => {
         setLoading(true);
 
         try{
-            const token = sessionStorage.getItem('token');
-            const config = { headers: { Authorization: `Bearer ${token}` } };
-            const response = await axios.get(`/api/exercises/${exercise_id}`, config);
+            const response = await axios.get(`/api/exercises/${exercise_id}`, config());
 
             setLoading(false);
             setExercise(response.data.success);
@@ -58,12 +59,9 @@ const Provider = ({ children }) => {
             formDataSubmit.append('image', exercise.image);
 
         try{
-            const token = sessionStorage.getItem('token');
-            const config = { headers: { Authorization: `Bearer ${token}` } };
-
             isEditing
-                ? await axios.post(`/api/exercises/${exercise.id}`, formDataSubmit, config)
-                : await axios.post(`/api/exercises`, formDataSubmit, config);
+                ? await axios.post(`/api/exercises/${exercise.id}`, formDataSubmit, config())
+                : await axios.post(`/api/exercises`, formDataSubmit, config());
         
             setExercise({});
             setExercises([]);
@@ -78,9 +76,7 @@ const Provider = ({ children }) => {
         setLoading(true);
 
         try{
-            const token = sessionStorage.getItem('token');
-            const config = { headers: { Authorization: `Bearer ${token}` } };
-            await axios.delete(`/api/exercises/${id}`, config);
+            await axios.delete(`/api/exercises/${id}`, config());
             setLoading(false);
 
             setExercise({});

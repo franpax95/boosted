@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import axios from 'axios';
+import { Context as UserContext } from './UserContext';
 
 const Context = React.createContext([{}, () => {}]);
 
@@ -11,15 +13,15 @@ const Provider = ({ children }) => {
     const [exercises, setExercises] = useState([]);
 
 
+    const { token } = useContext(UserContext);
+    const config = () => ({ headers: { Authorization: `Bearer ${token()}` } });
 
 
     const getRoutines = async () => {
         setLoading(true);
 
         try{
-            const token = sessionStorage.getItem('token');
-            const config = { headers: { Authorization: `Bearer ${token}` } };
-            const response = await axios.get(`/api/routines`, config);
+            const response = await axios.get(`/api/routines`, config());
             setLoading(false);
 
             const { success } = response.data;
@@ -39,9 +41,7 @@ const Provider = ({ children }) => {
         setLoading(true);
         
         try{
-            const token = sessionStorage.getItem('token');
-            const config = { headers: { Authorization: `Bearer ${token}` } };
-            const response = await axios.get(`/api/routines/${routine_id}`, config);
+            const response = await axios.get(`/api/routines/${routine_id}`, config());
             setLoading(false);
 
             setRoutine(response.data.success.routine);
@@ -62,12 +62,10 @@ const Provider = ({ children }) => {
         setLoading(true);
 
         try{
-            const token = sessionStorage.getItem('token');
-            const config = { headers: { Authorization: `Bearer ${token}` } };
 
             isEditing
-                ? await axios.post(`/api/routines/${routine.id}`, routine, config)
-                : await axios.post(`/api/routines`, routine, config);
+                ? await axios.post(`/api/routines/${routine.id}`, routine, config())
+                : await axios.post(`/api/routines`, routine, config());
             setLoading(false);
 
             setRoutines([]);
@@ -83,9 +81,7 @@ const Provider = ({ children }) => {
         setLoading(true);
         
         try{
-            const token = sessionStorage.getItem('token');
-            const config = { headers: { Authorization: `Bearer ${token}` } };
-            await axios.delete(`/api/routines/${id}`, config);
+            await axios.delete(`/api/routines/${id}`, config());
             setLoading(false);
 
             setRoutines([]);

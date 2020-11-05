@@ -4,7 +4,7 @@ import * as Cookies from "js-cookies";
 
 const Context = React.createContext([{}, () => {}]);
 
-const Provider = ({ children, _user = {} }) => {
+const Provider = ({ children }) => {
     const _SESSION = "boosted-session";
 
 
@@ -110,6 +110,8 @@ const Provider = ({ children, _user = {} }) => {
         }
     }
 
+    const token = () => getSessionCookie().token;
+
     const value = {
         isAuth,
         user,
@@ -118,7 +120,8 @@ const Provider = ({ children, _user = {} }) => {
         login,
         signup,
         getUserDetails,
-        logout
+        logout,
+        token
     };
 
     return (

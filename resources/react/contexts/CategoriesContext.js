@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
+import { Context as UserContext } from './UserContext';
 
 const Context = React.createContext([{}, () => {}]);
 
@@ -12,15 +13,17 @@ const Provider = ({ children }) => {
     const [exercises, setExercises] = useState([]);
 
 
+    const { token } = useContext(UserContext);
+    const config = () => ({ headers: { Authorization: `Bearer ${token()}` } });
+
+
 
 
     const getCategories = async () => {
         setLoading(true);
         
         try{
-            const token = sessionStorage.getItem('token');
-            const config = { headers: { Authorization: `Bearer ${token}` } };
-            const response = await axios.get(`/api/categories`, config);
+            const response = await axios.get(`/api/categories`, config());
 
             setLoading(false);
             setCategories(response.data.success);
@@ -36,9 +39,7 @@ const Provider = ({ children }) => {
         setLoading(true);
 
         try{
-            const token = sessionStorage.getItem('token');
-            const config = { headers: { Authorization: `Bearer ${token}` } };
-            const response = await axios.get(`/api/categories/${category_id}`, config);
+            const response = await axios.get(`/api/categories/${category_id}`, config());
             const { category, exercises } = response.data.success;
 
             setLoading(false);
@@ -57,11 +58,9 @@ const Provider = ({ children }) => {
         setLoading(true);
 
         try{
-            const token = sessionStorage.getItem('token');
-            const config = { headers: { Authorization: `Bearer ${token}` } };
 
             isEditing
-                ? await axios.post(`/api/categories/${category.id}`, category, config)
+                ? await axios.post(`/api/categories/${category.id}`, category, config())
                 : await axios.post(`/api/categories`, category, config);
 
             setExercises([]);
@@ -78,9 +77,7 @@ const Provider = ({ children }) => {
         setLoading(true);
 
         try{
-            const token = sessionStorage.getItem('token');
-            const config = { headers: { Authorization: `Bearer ${token}` } };
-            await axios.delete(`/api/categories/${id}`, config);
+            await axios.delete(`/api/categories/${id}`, config());
             setLoading(false);
 
             setCategories([]);
